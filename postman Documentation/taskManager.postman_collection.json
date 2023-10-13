@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "f5f35294-dc9b-4fb8-8ffe-912295dbebc2",
+		"name": "taskManager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26251659"
+	},
+	"item": [
+		{
+			"name": "Login Registration",
+			"item": [
+				{
+					"name": "userLogin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"mahi17\",\r\n    \"password\": \"122870\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base_Url}}/userLogin",
+							"host": [
+								"{{Base_Url}}"
+							],
+							"path": [
+								"userLogin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createProfile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FirstName\": \"Mobinul Islam\",\r\n\"LastName\": \"Mahi\",\r\n\"EmailAddress\": \"mobinulislammahi@gmail.com\",\r\n\"MobileNumber\": 1647135496,\r\n\"city\": \"Cox'sbazar\",\r\n\"userName\": \"mahi17\",\r\n\"password\": \"122870\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base_Url}}/createProfile",
+							"host": [
+								"{{Base_Url}}"
+							],
+							"path": [
+								"createProfile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "selectProfile",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user Profile",
+			"item": [
+				{
+					"name": "updateProfile",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Todo List",
+			"item": [
+				{
+					"name": "createTodo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token_key",
+								"value": "{{Token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"TodoSubject\": \"Sound\",\r\n    \"TodoDesc\": \"This sound is awesome for hearing.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base_Url}}/createTodo",
+							"host": [
+								"{{Base_Url}}"
+							],
+							"path": [
+								"createTodo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateStatusTodo",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "updateTodo",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "selectTodo",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token_key",
+								"value": "{{Token}}",
+								"type": "text"
+							},
+							{
+								"key": "userName",
+								"value": "mahi17",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{Base_Url}}/selectTodo",
+							"host": [
+								"{{Base_Url}}"
+							],
+							"path": [
+								"selectTodo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTodo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{Base_Url}}/deleteTodo",
+							"host": [
+								"{{Base_Url}}"
+							],
+							"path": [
+								"deleteTodo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Base_Url",
+			"value": "http://localhost:8000/api/",
+			"type": "string"
+		},
+		{
+			"key": "Token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTY5MTU1NDksImRhdGEiOnsiX2lkIjoiNjUyMmQ1N2Y0ZWViNWQ3MTRhNDM4NzZkIiwiRmlyc3ROYW1lIjoiU2FkaWQgUmFoaW4iLCJMYXN0TmFtZSI6Ik5vaGFuIiwiRW1haWxBZGRyZXNzIjoic2FkaWRyYWhpbkBnbWFpbC5jb20iLCJNb2JpbGVOdW1iZXIiOjE4OTU2MzI1NDEsImNpdHkiOiJDb3gnc2JhemFyIiwidXNlck5hbWUiOiJub2hhbjE0IiwicGFzc3dvcmQiOiI1OTMzMTgiLCJjcmVhdGVkQXQiOiIyMDIzLTEwLTA4VDE2OjE0OjU1LjU5MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTEwLTA4VDE2OjE0OjU1LjU5MloifSwiaWF0IjoxNjk2ODI5MTQ5fQ.llGQ2lByo-HoiiXzuUNU4MJuy-a7Ybb0QOZd20wa07w",
+			"type": "string"
+		}
+	]
+}
